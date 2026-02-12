@@ -1,0 +1,5 @@
+docker-compose.yml
+logs/
+mu-plugins/
+wp_data/
+

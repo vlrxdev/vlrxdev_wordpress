@@ -1,0 +1,365 @@
+/*
+Theme Name: vlrxdev
+Theme URI: https://github.com/vlrxdev/vlrxdev
+Description: Минимальная тема: интро, вкладки, подвал с контактами.
+Version: 0.3.0
+Author: vlrxdev
+License: MIT
+*/
+
+/* --- Сброс и базовые стили --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1a1a1a;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Интро --- */
+.intro {
+  text-align: center;
+  padding: clamp(2rem, 8vh, 6rem) clamp(1rem, 4vw, 2rem);
+}
+
+.intro__title {
+  margin: 0;
+  font-size: clamp(1.25rem, 4vw + 1rem, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.intro__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.intro__title a:hover {
+  text-decoration: underline;
+}
+
+/* --- Блок с горизонтальными вкладками --- */
+.tabs {
+  flex: 1;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2rem) clamp(2rem, 6vw, 4rem);
+  width: 100%;
+}
+
+.tabs__nav {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+  gap: 0.25rem;
+  border-bottom: 2px solid #e0e0e0;
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.tabs__nav::-webkit-scrollbar {
+  height: 4px;
+}
+
+.tabs__nav::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 2px;
+}
+
+.tabs__tab {
+  flex: 0 1 auto;
+  min-width: 0;
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1.25rem);
+  font: inherit;
+  font-size: clamp(0.875rem, 2vw + 0.5rem, 1rem);
+  font-weight: 500;
+  color: #666;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+  white-space: nowrap;
+}
+
+.tabs__tab:hover {
+  color: #1a1a1a;
+}
+
+.tabs__tab.is-active {
+  color: #1a1a1a;
+  border-bottom-color: #1a1a1a;
+}
+
+.tabs__tab:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+.tabs__panels {
+  min-height: clamp(6rem, 15vw, 10rem);
+}
+
+.tabs__panel {
+  display: none;
+  padding: 0.5rem 0;
+  line-height: 1.6;
+  font-size: clamp(0.9375rem, 1.5vw + 0.75rem, 1rem);
+}
+
+.tabs__panel.is-active {
+  display: block;
+}
+
+.tabs__panel p {
+  margin: 0 0 1rem;
+}
+
+.tabs__panel p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Модули вкладок: услуги --- */
+.tab-services__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tab-services__item {
+  margin-bottom: 1.5rem;
+}
+
+.tab-services__item:last-child {
+  margin-bottom: 0;
+}
+
+.tab-services__empty {
+  margin: 0;
+  color: #666;
+}
+
+.service-card {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.service-card:last-child {
+  border-bottom: none;
+}
+
+.service-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.service-card__content {
+  margin-bottom: 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.service-card__content p:last-child {
+  margin-bottom: 0;
+}
+
+.service-card__price {
+  margin: 0;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* --- Модули вкладок: проекты --- */
+.tab-projects__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 480px) {
+  .tab-projects__list {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+}
+
+.tab-projects__item {
+  margin: 0;
+}
+
+.tab-projects__empty {
+  margin: 0;
+  color: #666;
+}
+
+.project-card {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.project-card__thumb {
+  line-height: 0;
+}
+
+.project-card__thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.project-card__thumb a {
+  display: block;
+}
+
+.project-card__body {
+  padding: 1rem;
+}
+
+.project-card__title {
+  margin: 0 0 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.project-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.project-card__title a:hover {
+  text-decoration: underline;
+}
+
+.project-card__content {
+  font-size: 0.9375rem;
+}
+
+.project-card__content p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Остальные модули вкладок --- */
+.tab-about p,
+.tab-conditions p,
+.tab-reviews p {
+  margin: 0 0 1rem;
+}
+
+.tab-about p:last-child,
+.tab-conditions p:last-child,
+.tab-reviews p:last-child {
+  margin-bottom: 0;
+}
+
+.tab-about code,
+.tab-conditions code,
+.tab-reviews code {
+  font-size: 0.875em;
+  padding: 0.15em 0.4em;
+  background: #eee;
+  border-radius: 4px;
+}
+
+/* --- Подвал с контактами --- */
+.site-footer {
+  margin-top: auto;
+  padding: clamp(1.5rem, 4vw, 2.5rem) clamp(1rem, 4vw, 2rem);
+  background: #1a1a1a;
+  color: #e5e5e5;
+}
+
+.site-footer__inner {
+  max-width: 56rem;
+  margin: 0 auto;
+}
+
+.site-footer__title {
+  margin: 0 0 1rem;
+  font-size: clamp(0.875rem, 1.5vw + 0.5rem, 1rem);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.site-footer__contacts {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer__contacts li {
+  margin-bottom: 0.5rem;
+}
+
+.site-footer__contacts li:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer__contacts a {
+  color: #b0b0b0;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.site-footer__contacts a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* --- Адаптивность: узкие экраны --- */
+@media (max-width: 479px) {
+  .intro {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .tabs__nav {
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .tabs__tab {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .site-footer__contacts a {
+    display: inline-block;
+  }
+}
+
+/* --- Адаптивность: средние и широкие экраны --- */
+@media (min-width: 768px) {
+  .tabs {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
