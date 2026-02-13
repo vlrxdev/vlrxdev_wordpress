@@ -45,16 +45,7 @@ get_header();
     </div>
   </section>
 
-  <footer class="site-footer">
-    <div class="site-footer__inner">
-      <h2 class="site-footer__title">Контакты</h2>
-      <ul class="site-footer__contacts">
-        <li><a href="mailto:hello@example.com">hello@example.com</a></li>
-        <li><a href="tel:+79001234567">+7 900 123-45-67</a></li>
-        <li>г. Город, ул. Улица, 1</li>
-      </ul>
-    </div>
-  </footer>
+  <?php get_template_part( 'template-parts/footer', 'content' ); ?>
 </main>
 
 <?php

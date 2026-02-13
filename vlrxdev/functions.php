@@ -10,6 +10,7 @@ require_once get_template_directory() . '/inc/meta-project.php';
 require_once get_template_directory() . '/inc/meta-team.php';
 require_once get_template_directory() . '/inc/meta-mobile-image.php';
 require_once get_template_directory() . '/inc/responsive-image.php';
+require_once get_template_directory() . '/inc/footer-options.php';
 
 add_action( 'after_setup_theme', 'vlrxdev_setup' );
 
