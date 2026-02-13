@@ -7,6 +7,9 @@ defined( 'ABSPATH' ) || exit;
 
 require_once get_template_directory() . '/inc/cpt.php';
 require_once get_template_directory() . '/inc/meta-project.php';
+require_once get_template_directory() . '/inc/meta-team.php';
+require_once get_template_directory() . '/inc/meta-mobile-image.php';
+require_once get_template_directory() . '/inc/responsive-image.php';
 
 add_action( 'after_setup_theme', 'vlrxdev_setup' );
 
@@ -23,6 +26,13 @@ function vlrxdev_scripts() {
   wp_enqueue_script(
     'vlrxdev-tabs',
     get_template_directory_uri() . '/js/tabs.js',
+    array(),
+    wp_get_theme()->get( 'Version' ),
+    true
+  );
+  wp_enqueue_script(
+    'vlrxdev-accordion',
+    get_template_directory_uri() . '/js/accordion.js',
     array(),
     wp_get_theme()->get( 'Version' ),
     true

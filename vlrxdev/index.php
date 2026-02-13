@@ -13,6 +13,9 @@ get_header();
         <?php bloginfo( 'name' ); ?>
       </a>
     </h1>
+    <div class="intro_subtitle">
+        Fullstack developer
+    </div>
   </section>
 
   <section class="tabs" id="tabs">
@@ -21,7 +24,7 @@ get_header();
       <button type="button" class="tabs__tab" role="tab" aria-selected="false" aria-controls="panel-2" id="tab-2" data-tab="2">О нас</button>
       <button type="button" class="tabs__tab" role="tab" aria-selected="false" aria-controls="panel-3" id="tab-3" data-tab="3">Проекты</button>
       <button type="button" class="tabs__tab" role="tab" aria-selected="false" aria-controls="panel-4" id="tab-4" data-tab="4">Условия</button>
-      <button type="button" class="tabs__tab" role="tab" aria-selected="false" aria-controls="panel-5" id="tab-5" data-tab="5">Отзывы</button>
+      <!-- <button type="button" class="tabs__tab" role="tab" aria-selected="false" aria-controls="panel-5" id="tab-5" data-tab="5">Отзывы</button> -->
     </div>
     <div class="tabs__panels">
       <div class="tabs__panel is-active" id="panel-1" role="tabpanel" aria-labelledby="tab-1">
@@ -36,9 +39,9 @@ get_header();
       <div class="tabs__panel" id="panel-4" role="tabpanel" aria-labelledby="tab-4" hidden>
         <?php get_template_part( 'template-parts/tab', 'conditions' ); ?>
       </div>
-      <div class="tabs__panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+      <!-- <div class="tabs__panel" id="panel-5" role="tabpanel" aria-labelledby="tab-5" hidden>
         <?php get_template_part( 'template-parts/tab', 'reviews' ); ?>
-      </div>
+      </div> -->
     </div>
   </section>
 

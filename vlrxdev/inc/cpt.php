@@ -28,7 +28,7 @@ function vlrxdev_register_post_types() {
     'show_in_menu'        => true,
     'menu_icon'           => 'dashicons-cart',
     'capability_type'     => 'post',
-    'supports'            => array( 'title', 'editor', 'revisions', 'page-attributes' ),
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes' ),
     'has_archive'         => false,
   ) );
 
@@ -52,7 +52,45 @@ function vlrxdev_register_post_types() {
     'show_in_menu'        => true,
     'menu_icon'           => 'dashicons-portfolio',
     'capability_type'     => 'post',
-    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions' ),
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes' ),
+    'has_archive'         => false,
+  ) );
+
+  register_post_type( 'vlrxdev_team_member', array(
+    'labels'             => array(
+      'name'               => 'Участники команды',
+      'singular_name'      => 'Участник',
+      'add_new'            => 'Добавить участника',
+      'add_new_item'       => 'Добавить участника команды',
+      'edit_item'          => 'Редактировать участника',
+      'menu_name'          => 'Участники команды',
+    ),
+    'public'             => true,
+    'publicly_queryable'  => false,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'menu_icon'           => 'dashicons-groups',
+    'capability_type'     => 'post',
+    'supports'            => array( 'title', 'editor', 'thumbnail', 'revisions', 'page-attributes' ),
+    'has_archive'         => false,
+  ) );
+
+  register_post_type( 'vlrxdev_condition', array(
+    'labels'             => array(
+      'name'               => 'Условия (аккордеон)',
+      'singular_name'      => 'Пункт условия',
+      'add_new'            => 'Добавить пункт',
+      'add_new_item'       => 'Добавить пункт условия',
+      'edit_item'          => 'Редактировать пункт',
+      'menu_name'          => 'Условия',
+    ),
+    'public'             => true,
+    'publicly_queryable'  => false,
+    'show_ui'             => true,
+    'show_in_menu'        => true,
+    'menu_icon'           => 'dashicons-list-view',
+    'capability_type'     => 'post',
+    'supports'            => array( 'title', 'editor', 'revisions', 'page-attributes' ),
     'has_archive'         => false,
   ) );
 }

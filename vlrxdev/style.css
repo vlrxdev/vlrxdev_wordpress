@@ -1,6 +1,6 @@
 /*
 Theme Name: vlrxdev
-Theme URI: https://github.com/vlrxdev/vlrxdev
+Theme URI: https://github.com/vlrxdev
 Description: Минимальная тема: интро, вкладки, подвал с контактами.
 Version: 0.3.0
 Author: vlrxdev
@@ -38,11 +38,12 @@ body {
 
 .intro__title {
   margin: 0;
-  font-size: clamp(1.25rem, 4vw + 1rem, 2.5rem);
+  font-size: clamp(1.25rem, 4vw + 1rem, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.2;
   word-break: break-word;
+  text-transform: uppercase;
 }
 
 .intro__title a {
@@ -52,6 +53,11 @@ body {
 
 .intro__title a:hover {
   text-decoration: underline;
+}
+
+.intro_subtitle{
+    font-size: clamp(1rem, 2vw + 1rem, 2rem);
+    color: grey;
 }
 
 /* --- Блок с горизонтальными вкладками --- */
@@ -139,144 +145,186 @@ body {
   margin-bottom: 0;
 }
 
-/* --- Модули вкладок: услуги --- */
-.tab-services__list {
+/* --- Аккордеон (общий) --- */
+.accordion {
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.tab-services__item {
-  margin-bottom: 1.5rem;
+.accordion__item {
+  border-bottom: 1px solid #e0e0e0;
 }
 
-.tab-services__item:last-child {
+.accordion__item:last-child {
+  border-bottom: none;
+}
+
+.accordion__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem 0;
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
+  color: #1a1a1a;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.accordion__head:hover {
+  background: rgba(0, 0, 0, 0.03);
+}
+
+.accordion__head:focus-visible {
+  outline: 2px solid #1a1a1a;
+  outline-offset: 2px;
+}
+
+.accordion__title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.accordion__head--service .accordion__right,
+.accordion__head--project .accordion__right {
+  flex: 0 0 auto;
+  font-weight: 500;
+  color: #444;
+}
+
+.accordion__head--service .accordion__right {
+  white-space: nowrap;
+}
+
+.accordion__body {
+  padding: 0 0 1rem;
+  overflow: hidden;
+}
+
+.accordion__body[hidden] {
+  display: none;
+}
+
+.accordion__content {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.accordion__content:last-child {
   margin-bottom: 0;
 }
 
+.accordion__content p:last-child {
+  margin-bottom: 0;
+}
+
+.accordion__image {
+  margin-top: 0.5rem;
+  line-height: 0;
+}
+
+.accordion__image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.accordion__image a {
+  display: inline-block;
+}
+
+/* --- Услуги --- */
 .tab-services__empty {
   margin: 0;
   color: #666;
 }
 
-.service-card {
-  padding: 1rem 0;
-  border-bottom: 1px solid #e8e8e8;
+/* --- О нас: участники команды --- */
+.tab-about__empty {
+  margin: 0;
+  color: #666;
 }
 
-.service-card:last-child {
-  border-bottom: none;
+.team-socials {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
-.service-card__title {
-  margin: 0 0 0.5rem;
-  font-size: 1.125rem;
-  font-weight: 600;
+.team-socials__item {
+  margin: 0;
 }
 
-.service-card__content {
-  margin-bottom: 0.5rem;
+.team-socials__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: #1a1a1a;
+  text-decoration: none;
   font-size: 0.9375rem;
 }
 
-.service-card__content p:last-child {
-  margin-bottom: 0;
+.team-socials__link:hover {
+  text-decoration: underline;
 }
 
-.service-card__price {
-  margin: 0;
-  font-weight: 600;
-  color: #1a1a1a;
+.team-socials__icon {
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-/* --- Модули вкладок: проекты --- */
-.tab-projects__list {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: grid;
-  gap: 1.5rem;
+.team-socials__icon.dashicons {
+  font-family: dashicons;
+  font-size: 22px;
+  line-height: 1;
 }
 
-@media (min-width: 480px) {
-  .tab-projects__list {
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  }
-}
-
-.tab-projects__item {
-  margin: 0;
-}
-
+/* --- Проекты --- */
 .tab-projects__empty {
   margin: 0;
   color: #666;
 }
 
-.project-card {
-  background: #fff;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.project-card__thumb {
-  line-height: 0;
-}
-
-.project-card__thumb img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-
-.project-card__thumb a {
-  display: block;
-}
-
-.project-card__body {
-  padding: 1rem;
-}
-
-.project-card__title {
-  margin: 0 0 0.5rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
-.project-card__title a {
+.accordion__head--project .accordion__title a {
   color: inherit;
   text-decoration: none;
 }
 
-.project-card__title a:hover {
+.accordion__head--project .accordion__title a:hover {
   text-decoration: underline;
 }
 
-.project-card__content {
-  font-size: 0.9375rem;
+/* --- Условия --- */
+.tab-conditions__empty {
+  margin: 0;
+  color: #666;
 }
 
-.project-card__content p:last-child {
-  margin-bottom: 0;
-}
-
-/* --- Остальные модули вкладок --- */
-.tab-about p,
-.tab-conditions p,
+/* --- Отзывы --- */
 .tab-reviews p {
   margin: 0 0 1rem;
 }
 
-.tab-about p:last-child,
-.tab-conditions p:last-child,
 .tab-reviews p:last-child {
   margin-bottom: 0;
 }
 
-.tab-about code,
-.tab-conditions code,
 .tab-reviews code {
   font-size: 0.875em;
   padding: 0.15em 0.4em;
@@ -363,3 +411,5 @@ body {
     padding-right: 2rem;
   }
 }
+
+
